@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurofarma - Compliance Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="logo-container">
+            <img src="eurofarma-logo.png" alt="Eurofarma - Compliance">
+        </div>
+        <div class="login-box">
+            <form method="POST" action="{{ url_for('login') }}">
+                <label for="username">Usuário:</label><br>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password">Senha:</label><br>
+                <input type="password" id="password" name="password"><br><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
