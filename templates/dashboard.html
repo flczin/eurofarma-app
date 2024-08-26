@@ -7,8 +7,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
 </head>
 <body>
-    <h1>Welcome, {{ username }}!</h1>
-    <p>This is your dashboard.</p>
+    <header>
+        <h1>Eurofarma - Compliance</h1>
+        <button>Fale com o Euri</button>
+    </header>
+    <div>
+        <div>Perguntas Frequentes</div>
+        <div>Manuais de Conduta</div>
+        <div>Relatórios de Não-Conformidade</div>
+        <div>Recursos de Compliance</div>
+    </div>
     <a href="{{ url_for('logout') }}">Logout</a>
 </body>
 </html>

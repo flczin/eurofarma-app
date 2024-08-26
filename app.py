@@ -40,6 +40,22 @@ def dashboard():
         flash('You must be logged in to access the dashboard', 'warning')
         return redirect(url_for('login'))
 
+
+@app.route('/perguntas')
+def perguntas():
+    return render_template('perguntas.html')
+
+
+@app.route('/treinamentos')
+def treinamentos():
+    return render_template('treinamentos.html')
+
+
+@app.route('/relatorios')
+def relatorios():
+    return render_template('relatorios.html')
+
+
 @app.route('/logout')
 def logout():
     session.pop('username', None)
