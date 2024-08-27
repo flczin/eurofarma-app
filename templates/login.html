@@ -5,22 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eurofarma - Compliance Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="login-page">
     <div class="login-container">
         <div class="logo-container">
-            <img src="eurofarma-logo.png" alt="Eurofarma - Compliance">
+            <img src="../static/images/logo-eurofarma.png" alt="Eurofarma - Compliance">
         </div>
         <div class="login-box">
             <form method="POST" action="{{ url_for('login') }}">
-                <label for="username">Usuário:</label><br>
-                <input type="text" id="username" name="username"><br><br>
-                <label for="password">Senha:</label><br>
-                <input type="password" id="password" name="password"><br><br>
-                <input type="submit" value="Login">
+                <label for="username" class="input-icon">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" id="username" name="username" placeholder="Usuário" required>
+                </label>
+                <label for="password" class="input-icon">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Senha" required>
+                </label>
+                <a href="{{ url_for('forgot_password') }}" class="forgot-password">Esqueci a senha</a>
+                <input type="submit" value="Entrar">
             </form>
         </div>
     </div>
 </body>
+    <footer class="footer">Eurofarma | Todos os Direitos Reservados</footer>
+</body>
 </html>
-
