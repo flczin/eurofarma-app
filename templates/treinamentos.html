@@ -1,37 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuais de Conduta</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='treinamentos.css') }}">
-    <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <div class="header">Manuais de Conduta</div>
-        <ul class="document-list">
-            <li>
-                <img src="" alt="Documento" width="20" height="20">
-                <a href="#">Código de Ética</a>
-            </li>
-            <li>
-                <img src="" alt="Documento" width="20" height="20">
-                <a href="#">Políticas de Conduta no Trabalho</a>
-            </li>
-            <li>
-                <img src="" alt="Documento" width="20" height="20">
-                <a href="#">Conformidade Legal</a>
-            </li>
-            <li>
-                <img src="" alt="Documento" width="20" height="20">
-                <a href="#">Comunicações</a>
-            </li>
-            <li>
-                <img src="" alt="Documento" width="20" height="20">
-                <a href="#">Relatórios e Investigações</a>
-            </li>
-        </ul>
+        <div class="sidebar">
+            <div class="title">Biblioteca de Conteúdo</div>
+            <p> Documentos e treinamentos voltados para garantir que todos os colaboradores compreendam e sigam os padrões éticos e legais da empresa. Esses manuais são essenciais para manter a conformidade e a integridade nas operações da Eurofarma.</p>
+        </div>
+        <div class="document-list">
+            <div class="topic">
+                <h3>Tópicos de Conduta Ética:</h3>
+                <ul>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Manual de Conduta Ética</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Guia de Comportamento Profissional</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Código de Ética Empresarial</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="topic">
+                <h3>Tópicos de Conformidade Legal:</h3>
+                <ul>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Manual de Compliance Legal</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Guia de Conformidade Regulatória</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Políticas de Conformidade com Leis</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="topic">
+                <h3>Tópicos de Responsabilidade Social:</h3>
+                <ul>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Manual de Responsabilidade Social</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Guia de Sustentabilidade Corporativa</a>
+                    </li>
+                    
+                 
+                </ul>
+            </div>
+        </div>
     </div>
-    <footer>Eurofarma | Todos os Direitos Reservados</footer>
+    <div class="footer">Eurofarma | Todos os Direitos Reservados</div>
 </body>
+
 </html>
