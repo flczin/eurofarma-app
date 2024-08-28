@@ -5,18 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <header>
-        <h1>Eurofarma - Compliance</h1>
-        <button>Fale com o Euri</button>
+<body class="login-page">
+    <header class="header">
+        <img src="../static/images/logo-eurofarma.png" alt="Eurofarma Logo" class="logo">
+        <button class="contact-button">
+            <img src="../static/images/euri.png" alt="Euri" class="euri"> Mande uma mensagem para o Euri
+        </button>
     </header>
-    <div>
-        <div>Perguntas Frequentes</div>
-        <div>Manuais de Conduta</div>
-        <div>Relatórios de Não-Conformidade</div>
-        <div>Recursos de Compliance</div>
+    
+    <div class="content">
+        <div class="section">
+            <div class="icon"><i class="fa-solid fa-question"></i></div> 
+            <p class="text">Perguntas Frequentes</p> 
+        </div>
+        <div class="section">
+            <div class="icon"><i class="fa-solid fa-book"></i></div> 
+            <p class="text">Manuais de Conduta</p> 
+        </div>
+        <div class="section">
+            <div class="icon"><i class="fa-solid fa-note-sticky"></i></div> 
+            <p class="text">Relatório de Não-Conformidade</p> 
+        </div>
+        <div class="section">
+            <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <p class="text">Recursos de Compliance</p> 
+        </div>
     </div>
-    <a href="{{ url_for('logout') }}">Logout</a>
+    <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+    <footer class="footer">Eurofarma | Todos os Direitos Reservados</footer>
 </body>
 </html>
+
