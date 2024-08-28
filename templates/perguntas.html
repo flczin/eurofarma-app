@@ -6,25 +6,33 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='perguntas.css') }}">
     <title>Perguntas Frequentes</title>
 </head>
-<body>
-    <header>
-        <h1>Eurofarma - Compliance</h1>
-        <button>Fale com o Euri</button>
-    </header>
-    <div class="faq-container">
-        <div class="faq-item">
-            <div class="faq-question">Como fazer uma pergunta ao Euri?</div>
-            <div class="faq-answer">Entre em nosso chat bot pela tela principal, na parte superior direita.</div>
+<body class="faq-page">
+    <div class="faq-header">
+        <div class="faq-title-container">
+            <h1 class="faq-title">Perguntas Frequentes</h1>
         </div>
-        <div class="faq-item">
-            <div class="faq-question">O que acontece se eu não seguir o manual de conduta em uma venda?</div>
-            <div class="faq-answer">Resposta para a pergunta sobre o manual de conduta.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">Como são tratadas as violações de compliance e quais são as consequências para os infratores?</div>
-            <div class="faq-answer">Resposta para a pergunta sobre violações de compliance.</div>
-        </div>
+        <button class="contact-button">
+            <img src="../static/images/euri.png" alt="Euri" class="euri"> Mande uma mensagem para o Euri
+        </button>
     </div>
+    
+    <main class="content">
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Como fazer uma pergunta ao Euri?</div>
+                <div class="faq-answer">Entre em nosso chat bot pela tela principal, na parte superior direita.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">O que acontece se eu não seguir o manual de conduta em uma venda?</div>
+                <div class="faq-answer">Resposta para a pergunta sobre o manual de conduta.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Como são tratadas as violações de compliance e quais são as consequências para os infratores?</div>
+                <div class="faq-answer">Resposta para a pergunta sobre violações de compliance.</div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">Eurofarma | Todos os Direitos Reservados</footer>
 
     <script>
         document.querySelectorAll('.faq-item').forEach(item => {
