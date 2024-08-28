@@ -1,40 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatórios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='relatorios.css') }}">
 </head>
+
 <body>
     <div class="container">
         <div class="header">Relatórios de Não-Conformidade</div>
         <div class="sidebar">
             <div class="title">Biblioteca de conteúdo</div>
-            <p>Relatórios de Não-Conformidade, o usuário vai baixar em seus arquivos da máquina para analisar o PDF.</p>
+            <p> Documentos utilizados para registrar e monitorar desvios ou falhas em relação aos padrões estabelecidos, regulamentos ou boas práticas. Estes relatórios são fundamentais para garantir a qualidade e a conformidade dos produtos e processos da Eurofarma.</p>
         </div>
-        <ul class="document-list">
-            <li>
-                <img src="" alt="Documento" width="20" height="20">
-                <a href="#" style="color: white;">Relatório de Não Conformidade - Janeiro</a>
-            </li>
-            <li>
-                <img src="" alt="Documento" width="20" height="20">
-                <a href="#" style="color: white;">Relatório de Não Conformidade - Fevereiro</a>
-            </li>
-            <li>
-                <img src="" alt="Documento" width="20" height="20">
-                <a href="#" style="color: white;">Relatório de Não Conformidade - Março</a>
-            </li>
-            <li>
-                <img src="" alt="Documento" width="20" height="20">
-                <a href="#" style="color: white;">Relatório de Não Conformidade - Abril</a>
-            </li>
-            <li>
-                <img src="" alt="Documento" width="20" height="20">
-                <a href="#" style="color: white;">Relatório de Não Conformidade - Maio</a>
-            </li>
-        </ul>
+        <div class="document-list">
+            <div class="topic">
+                <h3>Tópicos de Qualidade:</h3>
+                <ul>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Relatório de Desvios de Qualidade</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Registros de Controle de Qualidade</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Análise de Falhas de Qualidade</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="topic">
+                <h3>Tópicos de Segurança:</h3>
+                <ul>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Relatório de Incidentes de Segurança</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Registro de Desvios de Segurança</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Monitoramento de Conformidade em Segurança</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="topic">
+                <h3>Tópicos de Processos:</h3>
+                <ul>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Relatório de Desvios em Processos Operacionais</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Registros de Não Conformidade em Processos</a>
+                    </li>
+                    <li>
+                        <img src="../static/images/document.png" alt="Documento" width="20" height="20">
+                        <a href="#">Análise de Ineficiências de Processo</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
     </div>
     <div class="footer">Eurofarma | Todos os Direitos Reservados</div>
 </body>
+
 </html>
