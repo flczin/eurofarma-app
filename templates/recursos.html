@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos de Compliance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='recursos.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">Recursos de Compliance</div>
+        <div class="main-content">
+            <div class="description-box">
+                <h2>Sobre os recursos</h2>
+                <p>Esta página contém recursos e informações importantes sobre Compliance na Eurofarma. Aqui você encontrará links úteis para regulamentações e normas, além de um glossário com definições de termos relevantes. O objetivo é fornecer uma visão geral e acesso a materiais essenciais para assegurar a conformidade com as políticas e regulamentos.</p>
+            </div>
+
+            <div class="links-section">
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-link"></i> Lei Geral de Proteção de Dados (LGPD)</a></li>
+                    <li><a href="#"><i class="fas fa-link"></i> Normas Regulamentadoras de Segurança e Saúde no Trabalho (NRs)</a></li>
+                </ul>
+                <h2>Sites Importantes</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-external-link-alt"></i> Portal da Transparência</a></li>
+                    <li><a href="#"><i class="fas fa-external-link-alt"></i> Controladoria-Geral da União (CGU)</a></li>
+                </ul>
+            </div>
+
+            <div class="glossary-section">
+                <h2>Glossário de Termos</h2>
+                <div class="glossary-term">
+                    <h3>Due Diligence <span class="arrow">▼</span></h3>
+                    <p>Investigação e análise detalhada de uma empresa ou transação para avaliar riscos e conformidade legal e operacional.</p>
+                </div>
+                <div class="glossary-term">
+                    <h3>Risco de Compliance <span class="arrow">▼</span></h3>
+                    <p>Possibilidade de penalidades por não conformidade com leis e regulamentos.</p>
+                </div>
+                <div class="glossary-term">
+                    <h3>Auditoria de Compliance <span class="arrow">▼</span></h3>
+                    <p>Revisão independente para assegurar conformidade com leis e identificar riscos.</p>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h2>Políticas Internas</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Código de Conduta</a></li>
+                    <li><a href="#"><i class="fas fa-lock"></i> Políticas de Segurança da Informação</a></li>
+                </ul>
+            </div>
+            <div class="procedures-section">
+                <h2>Procedimentos e Normas</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-exclamation-circle"></i> Procedimentos de Denúncia</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i> Normas de Conformidade Ambiental</a></li>
+                </ul>
+            </div>
+            <div class="training-section">
+                <h2>Formações e Treinamentos</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Treinamentos Disponíveis</a></li>
+                    <li><a href="#"><i class="fas fa-video"></i> Webinars e Eventos</a></li>
+                </ul>
+            </div>
+            <div class="audit-section">
+                <h2>Auditorias e Monitoramento</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Relatórios de Auditoria</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Monitoramento de Conformidade</a></li>
+                </ul>
+            </div>
+            <div class="resources-section">
+                <h2>Recursos e Ferramentas</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-tools"></i> Documentos e Modelos</a></li>
+                    <li><a href="#"><i class="fas fa-cogs"></i> Ferramentas de Compliance</a></li>
+                </ul>
+            </div>
+            <div class="case-studies-section">
+                <h2>Estudos de Caso e Exemplos</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> Casos de Sucesso</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Estudos de Caso</a></li>
+                </ul>
+            </div>
+            <div class="responsibility-section">
+                <h2>Responsabilidades e Papéis</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-users"></i> Responsabilidades da Equipe de Compliance</a></li>
+                    <li><a href="#"><i class="fas fa-briefcase"></i> Funções dos Líderes e Gestores</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">Eurofarma | Todos os Direitos Reservados</div>
+
+    <script>
+        document.querySelectorAll('.glossary-term h3').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

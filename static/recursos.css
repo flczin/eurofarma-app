@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #034ea2;
+    background: url('../static/images/ultrafarma-back.jpeg') no-repeat center center;
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.header {
+    background-color: rgba(3, 78, 162, 0.8);
+    color: #fbfcfc;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.description-box {
+    background-color: #0e070700;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.description-box h2 {
+    color: #034ea2;
+}
+
+.links-section, .glossary-section, .policy-section, .procedures-section, .training-section, .audit-section, .resources-section, .case-studies-section, .responsibility-section {
+    background-color: rgba(3, 78, 162, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.links-section h2, .glossary-section h2, .policy-section h2, .procedures-section h2, .training-section h2, .audit-section h2, .resources-section h2, .case-studies-section h2, .responsibility-section h2 {
+    color: #fefeff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.links-section ul, .policy-section ul, .procedures-section ul, .training-section ul, .audit-section ul, .resources-section ul, .case-studies-section ul, .responsibility-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.links-section ul li, .policy-section ul li, .procedures-section ul li, .training-section ul li, .audit-section ul li, .resources-section ul li, .case-studies-section ul li, .responsibility-section ul li {
+    margin-bottom: 10px;
+}
+
+.links-section ul li a, .policy-section ul li a, .procedures-section ul li a, .training-section ul li a, .audit-section ul li a, .resources-section ul li a, .case-studies-section ul li a, .responsibility-section ul li a {
+    color: #f7fafd;
+    text-decoration: underline;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.links-section ul li a:hover, .policy-section ul li a:hover, .procedures-section ul li a:hover, .training-section ul li a:hover, .audit-section ul li a:hover, .resources-section ul li a:hover, .case-studies-section ul li a:hover, .responsibility-section ul li a:hover {
+    text-decoration: underline; 
+}
+
+a i {
+    font-size: 16px; 
+    color: rgba(245, 248, 251, 0.8);
+}
+
+.glossary-section {
+    background-color: rgba(3, 78, 162, 0.8); 
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.glossary-term h3 {
+    cursor: pointer;
+    padding: 12px;
+    background-color: #4a90e2; 
+    color: white; 
+    margin: 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.glossary-term p {
+    display: none;
+    margin: 0;
+    padding: 5px 10px; 
+    background-color: #f0f4f8;
+    border-radius: 5px;
+    border-left: 3px solid #4a90e2;
+    line-height: 1.4; 
+}
+
+.glossary-term.active p {
+    display: block;
+}
+
+.footer {
+    background-color: rgba(0, 86, 179, 0.7);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    font-family: Arial, sans-serif;
+    z-index: 2;
+}
