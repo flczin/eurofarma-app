@@ -16,22 +16,31 @@
     </header>
     
     <div class="content">
-        <div class="section">
-            <div class="icon"><i class="fa-solid fa-question"></i></div> 
-            <p class="text">Perguntas Frequentes</p> 
-        </div>
-        <div class="section">
-            <div class="icon"><i class="fa-solid fa-book"></i></div> 
-            <p class="text">Manuais de Conduta</p> 
-        </div>
-        <div class="section">
-            <div class="icon"><i class="fa-solid fa-note-sticky"></i></div> 
-            <p class="text">Relatório de Não-Conformidade</p> 
-        </div>
-        <div class="section">
-            <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
-            <p class="text">Recursos de Compliance</p> 
-        </div>
+        <a href="{{ url_for('perguntas') }}">
+            <div class="section">
+                <div class="icon"><i class="fa-solid fa-question"></i></div> 
+                <p class="text">Perguntas Frequentes</p> 
+            </div>
+        </a>
+        <a href="{{ url_for('manuais') }}">
+            <div class="section">
+                <div class="icon"><i class="fa-solid fa-book"></i></div> 
+                <p class="text">Manuais de Conduta</p> 
+            </div>
+        </a>
+        <a href="{{ url_for('relatorios') }}">
+            <div class="section">
+                <div class="icon"><i class="fa-solid fa-note-sticky"></i></div> 
+                <p class="text">Relatório de Não-Conformidade</p> 
+            </div>
+        </a>
+        <a href="{{ url_for('recursos') }}">
+            <div class="section">
+                <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <p class="text">Recursos de Compliance</p> 
+            </div>
+        </a>
+        
     </div>
     <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
     <footer class="footer">Eurofarma | Todos os Direitos Reservados</footer>

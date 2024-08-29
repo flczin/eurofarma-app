@@ -107,5 +107,8 @@ body::before {
     padding: 10px 0;
     font-size: 0.9em;
     font-family: Arial, sans-serif;
-    z-index: 2;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }

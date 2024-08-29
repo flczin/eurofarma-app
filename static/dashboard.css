@@ -4,6 +4,10 @@
     box-sizing: border-box;
   }
 
+a{
+    text-decoration: none;
+}
+
 .login-page {
     font-family: Arial, sans-serif;
     background: url('../static/images/ultrafarma-back.jpeg') no-repeat center center;
@@ -114,6 +118,7 @@
     font-size: 16px;
     margin: 20px auto;
     transition: background-color 0.3s;
+    z-index: 10;
 }
 
 .logout-link:hover {

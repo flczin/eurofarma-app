@@ -10,6 +10,11 @@
     overflow: hidden; 
 }
 
+.alert-warning{
+    position: absolute;
+    top: 0;
+}
+
 .login-page::before {
     content: "";
     position: absolute;

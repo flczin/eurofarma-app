@@ -43,17 +43,39 @@ def dashboard():
 
 @app.route('/perguntas')
 def perguntas():
-    return render_template('perguntas.html')
+    if 'username' in session:
+        return render_template('perguntas.html', username=session['username'])
+    else:
+        flash('You must be logged in to access perguntas', 'warning')
+        return redirect(url_for('login'))
 
 
-@app.route('/treinamentos')
-def treinamentos():
-    return render_template('treinamentos.html')
+@app.route('/manuais')
+def manuais():
+    if 'username' in session:
+        return render_template('manuais.html', username=session['username'])
+    else:
+        flash('You must be logged in to access manuais', 'warning')
+        return redirect(url_for('login'))
+
+
+@app.route('/recursos')
+def recursos():
+    if 'username' in session:
+        return render_template('recursos.html', username=session['username'])
+    else:
+        flash('You must be logged in to access recursos', 'warning')
+        return redirect(url_for('login'))
 
 
 @app.route('/relatorios')
 def relatorios():
-    return render_template('relatorios.html')
+    if 'username' in session:
+        return render_template('relatorios.html', username=session['username'])
+    else:
+        flash('You must be logged in to access relatorios', 'warning')
+        return redirect(url_for('login'))
+
 
 
 @app.route('/logout')
