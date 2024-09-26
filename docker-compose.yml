@@ -8,6 +8,12 @@ services:
       - "27017:27017"
     volumes:
       - mongodb-data:/data/db
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
 
 volumes:
   mongodb-data:
