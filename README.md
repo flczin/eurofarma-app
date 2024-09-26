@@ -1,7 +1,7 @@
 # Eurofarma app
 Projeto do challenge da FIAP 2024
 # Como usar
-Tenha python e docker instalado em seu computador. Inicie clonando o repo e abrindo no VsCode.
+Tenha python e docker instalado em seu computador e o arquivo `.env`. Inicie clonando o repo e abrindo no VsCode.
 ## Criando ambiente virtual
 Crie um ambiente virtual e entre nele.
 ```console
