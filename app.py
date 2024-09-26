@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+import os
+from flask import Flask, current_app, render_template, request, redirect, url_for, session, flash, send_from_directory, abort
 from pymongo import MongoClient
 import dotenv
 
@@ -76,6 +77,14 @@ def relatorios():
         flash('You must be logged in to access relatorios', 'warning')
         return redirect(url_for('login'))
 
+
+@app.route('/download_pdf/<path:filename>')
+def download_pdf(filename):
+    try:
+        manuais = os.path.join(current_app.root_path, "manuais")
+        return send_from_directory(manuais, filename, as_attachment=True, mimetype='application/pdf')
+    except FileNotFoundError:
+        abort(404)
 
 
 @app.route('/logout')
