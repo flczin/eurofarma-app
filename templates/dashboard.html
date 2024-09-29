@@ -1,49 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='chatbot.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body class="login-page">
     <header class="header">
         <img src="../static/images/logo-eurofarma.png" alt="Eurofarma Logo" class="logo">
-        <button class="contact-button">
+        <button class="contact-button" id="open-chat">
             <img src="../static/images/euri.png" alt="Euri" class="euri"> Mande uma mensagem para o Euri
         </button>
     </header>
-    
+
     <div class="content">
         <a href="{{ url_for('perguntas') }}">
             <div class="section">
-                <div class="icon"><i class="fa-solid fa-question"></i></div> 
-                <p class="text">Perguntas Frequentes</p> 
+                <div class="icon"><i class="fa-solid fa-question"></i></div>
+                <p class="text">Perguntas Frequentes</p>
             </div>
         </a>
         <a href="{{ url_for('manuais') }}">
             <div class="section">
-                <div class="icon"><i class="fa-solid fa-book"></i></div> 
-                <p class="text">Manuais de Conduta</p> 
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <p class="text">Manuais de Conduta</p>
             </div>
         </a>
         <a href="{{ url_for('relatorios') }}">
             <div class="section">
-                <div class="icon"><i class="fa-solid fa-note-sticky"></i></div> 
-                <p class="text">Relatório de Não-Conformidade</p> 
+                <div class="icon"><i class="fa-solid fa-note-sticky"></i></div>
+                <p class="text">Relatório de Não-Conformidade</p>
             </div>
         </a>
         <a href="{{ url_for('recursos') }}">
             <div class="section">
                 <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
-                <p class="text">Recursos de Compliance</p> 
+                <p class="text">Recursos de Compliance</p>
             </div>
         </a>
-        
+
     </div>
     <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
     <footer class="footer">Eurofarma | Todos os Direitos Reservados</footer>
-</body>
-</html>
 
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            <img src="../static/images/euri.png" alt="Euri" class="euri-header">
+            <span>Euri</span>
+            <button id="close-chat" class="close-btn">&times;</button>
+        </div>
+
+        <div class="chat-body">
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Digite sua mensagem aqui..." class="chat-input">
+            <button class="send-btn">Enviar</button>
+        </div>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const openChatButton = document.querySelector(".contact-button");
+                const chatFrame = document.getElementById("chat-container");
+                const chatBody = document.querySelector(".chat-body");
+                const chatInput = document.querySelector(".chat-input");
+                const sendButton = document.querySelector(".send-btn");
+                let isOpen = false;
+
+                // Abrir/Fechar o chat
+                if (openChatButton && chatFrame) {
+                    openChatButton.addEventListener("click", function () {
+                        if (!isOpen) {
+                            chatFrame.style.right = "10px"; // Abre o chat
+                            isOpen = true;
+
+                            // Adicionar mensagem de boas-vindas se o chat estiver vazio
+                            if (chatBody.children.length === 0) {
+                                addMessageToChat("Olá, Eu sou o Euri! Como posso te ajudar hoje?",
+                                    "bot-message");
+                            }
+                        } else {
+                            chatFrame.style.right = "-400px"; // Fecha o chat
+                            isOpen = false;
+                        }
+                    });
+                }
+
+                const closeChatButton = document.getElementById("close-chat");
+                if (closeChatButton) {
+                    closeChatButton.addEventListener("click", function () {
+                        chatFrame.style.right = "-400px"; // Fecha o chat
+                        isOpen = false;
+                    });
+                }
+
+                // Função para adicionar mensagem ao chat
+                function addMessageToChat(content, className) {
+                    const messageDiv = document.createElement("div");
+                    messageDiv.classList.add("message", className);
+                    messageDiv.textContent = content;
+                    chatBody.appendChild(messageDiv);
+                    chatBody.scrollTop = chatBody.scrollHeight; // Rolar para a última mensagem
+                }
+
+                // Enviar mensagem para a API
+                async function sendMessageToAPI(message) {
+                    try {
+                        const response = await fetch('/ia', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                text: message
+                            }),
+                        });
+
+                        const data = await response.json(); // Corrigido para JSON
+                        if (response.ok) {
+                            addMessageToChat(data.content,
+                            "bot-message"); // Adicionar apenas o conteúdo da resposta
+                        } else {
+                            addMessageToChat("Erro: Não foi possível obter resposta", "bot-message");
+                        }
+                    } catch (error) {
+                        console.error('Erro ao enviar a mensagem:', error);
+                        addMessageToChat("Erro: Problema ao conectar à API", "bot-message");
+                    }
+                }
+
+
+                sendButton.addEventListener("click", function () {
+                    const userMessage = chatInput.value.trim();
+                    if (userMessage) {
+                        addMessageToChat(userMessage, "user-message"); // Adiciona a mensagem do usuário
+                        chatInput.value = ""; // Limpa o campo de input
+                        sendMessageToAPI(userMessage); // Envia a mensagem para a API
+                    }
+                });
+
+                // Enviar mensagem ao pressionar "Enter"
+                chatInput.addEventListener("keypress", function (event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        sendButton.click(); // Dispara o evento de clique do botão
+                    }
+                });
+            });
+        </script>
+
+</body>
+
+</html>

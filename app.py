@@ -1,7 +1,10 @@
 import os
-from flask import Flask, current_app, render_template, request, redirect, url_for, session, flash, send_from_directory, abort
+from flask import Flask, current_app, render_template, request, redirect, url_for, session, flash, send_from_directory, jsonify, abort
 from pymongo import MongoClient
 import dotenv
+import requests
+import ollama
+
 
 app = Flask(__name__)
 app.secret_key = dotenv.get_key(".env", "SECRET")
@@ -76,7 +79,7 @@ def relatorios():
     else:
         flash('You must be logged in to access relatorios', 'warning')
         return redirect(url_for('login'))
-
+    
 
 @app.route('/download_pdf/<path:filename>')
 def download_pdf(filename):
@@ -92,6 +95,32 @@ def logout():
     session.pop('username', None)
     flash('You have been logged out', 'info')
     return redirect(url_for('login'))
+
+@app.route('/ia', methods=['POST'])
+def generate_response():
+    print("Rota '/ia' foi chamada")
+    data = request.get_json()
+    print("Dados recebidos:", data)
+    
+    text = data.get('text')
+
+    try:
+        response = ollama.chat(model='llama3.1', messages=[
+            {
+                'role': 'user',
+                'content': text,
+            },
+        ]) 
+
+        if 'message' in response and 'content' in response['message']:
+            return jsonify({'content': response['message']['content']}), 200
+        else:
+            return jsonify({"error": "Invalid response format"}), 500
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
