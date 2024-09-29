@@ -75,20 +75,20 @@
                 const sendButton = document.querySelector(".send-btn");
                 let isOpen = false;
 
-                // Abrir/Fechar o chat
+                
                 if (openChatButton && chatFrame) {
                     openChatButton.addEventListener("click", function () {
                         if (!isOpen) {
-                            chatFrame.style.right = "10px"; // Abre o chat
+                            chatFrame.style.right = "10px"; 
                             isOpen = true;
 
-                            // Adicionar mensagem de boas-vindas se o chat estiver vazio
+                            
                             if (chatBody.children.length === 0) {
                                 addMessageToChat("Olá, Eu sou o Euri! Como posso te ajudar hoje?",
                                     "bot-message");
                             }
                         } else {
-                            chatFrame.style.right = "-400px"; // Fecha o chat
+                            chatFrame.style.right = "-400px"; 
                             isOpen = false;
                         }
                     });
@@ -97,21 +97,19 @@
                 const closeChatButton = document.getElementById("close-chat");
                 if (closeChatButton) {
                     closeChatButton.addEventListener("click", function () {
-                        chatFrame.style.right = "-400px"; // Fecha o chat
+                        chatFrame.style.right = "-400px";
                         isOpen = false;
                     });
                 }
 
-                // Função para adicionar mensagem ao chat
                 function addMessageToChat(content, className) {
                     const messageDiv = document.createElement("div");
                     messageDiv.classList.add("message", className);
                     messageDiv.textContent = content;
                     chatBody.appendChild(messageDiv);
-                    chatBody.scrollTop = chatBody.scrollHeight; // Rolar para a última mensagem
+                    chatBody.scrollTop = chatBody.scrollHeight; 
                 }
 
-                // Enviar mensagem para a API
                 async function sendMessageToAPI(message) {
                     try {
                         const response = await fetch('/ia', {
@@ -124,10 +122,10 @@
                             }),
                         });
 
-                        const data = await response.json(); // Corrigido para JSON
+                        const data = await response.json(); 
                         if (response.ok) {
                             addMessageToChat(data.content,
-                            "bot-message"); // Adicionar apenas o conteúdo da resposta
+                            "bot-message"); 
                         } else {
                             addMessageToChat("Erro: Não foi possível obter resposta", "bot-message");
                         }
@@ -141,22 +139,20 @@
                 sendButton.addEventListener("click", function () {
                     const userMessage = chatInput.value.trim();
                     if (userMessage) {
-                        addMessageToChat(userMessage, "user-message"); // Adiciona a mensagem do usuário
-                        chatInput.value = ""; // Limpa o campo de input
-                        sendMessageToAPI(userMessage); // Envia a mensagem para a API
+                        addMessageToChat(userMessage, "user-message"); 
+                        chatInput.value = ""; 
+                        sendMessageToAPI(userMessage); 
                     }
                 });
 
-                // Enviar mensagem ao pressionar "Enter"
                 chatInput.addEventListener("keypress", function (event) {
                     if (event.key === "Enter") {
                         event.preventDefault();
-                        sendButton.click(); // Dispara o evento de clique do botão
+                        sendButton.click(); 
                     }
                 });
             });
         </script>
 
 </body>
-
 </html>

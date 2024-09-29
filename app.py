@@ -2,7 +2,6 @@ import os
 from flask import Flask, current_app, render_template, request, redirect, url_for, session, flash, send_from_directory, jsonify, abort
 from pymongo import MongoClient
 import dotenv
-import requests
 import ollama
 
 

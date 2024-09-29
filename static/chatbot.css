@@ -57,13 +57,13 @@
 }
 
 .bot-message {
-    background-color: #e6e6e6; /* Cinza claro para a resposta do bot */
-    align-self: flex-start; /* Alinhado à esquerda */
+    background-color: #e6e6e6; 
+    align-self: flex-start; 
 }
 
 .user-message {
-    background-color: #fff7ba; /* Amarelo claro para as mensagens do usuário */
-    align-self: flex-end; /* Alinhado à direita */
+    background-color: #fff7ba;
+    align-self: flex-end; 
 }
 
 .chat-footer {
