@@ -13,8 +13,8 @@ Dentro do ambiente virtual instale as bibliotecas necessárias.
 ```console
 pip install -r requirements.txt
 ```
-## Criando container com MongoDB
-Para o banco de dados usaremos um container com MongoDB
+## Criando container com MongoDB e ollama
+Para o banco de dados e a API da IA usaremos um container com MongoDB
 ```console
 docker compose up -d
 ```
