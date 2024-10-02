@@ -104,7 +104,7 @@ def generate_response():
     text = data.get('text')
 
     try:
-        response = ollama.chat(model='llama3.1', messages=[
+        response = ollama.chat(model='gemma2:2b', messages=[
             {
                 'role': 'user',
                 'content': text,
