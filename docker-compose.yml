@@ -14,6 +14,13 @@ services:
       - "5000:5000"
     depends_on:
       - mongodb
-
+  ollama:
+    image: ollama/ollama:latest
+    ports: 
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    
 volumes:
   mongodb-data:
+  ollama_models:

@@ -12,6 +12,8 @@ client = MongoClient(dotenv.get_key(".env", "MONGODB_URI"))
 db = client.eurofarma
 users_collection = db.users
 
+ai_client = ollama.Client(host=dotenv.get_key(".env", "OLLAMA_URI"))
+
 @app.route('/')
 def home():
     if 'username' in session:
@@ -97,17 +99,15 @@ def logout():
 
 @app.route('/ia', methods=['POST'])
 def generate_response():
-    print("Rota '/ia' foi chamada")
     data = request.get_json()
-    print("Dados recebidos:", data)
-    
     text = data.get('text')
 
     try:
-        response = ollama.chat(model='gemma2:2b', messages=[
+        response = ai_client.chat(model='gemma2:2b', messages=[
             {
                 'role': 'user',
-                'content': text,
+                'content': f'''Você possui vasto conhecimento sobre compliance, leis trabalhistas, responsabilidade social, sustentabilidade corporativa.
+                Com isso responda a seguir: {text}. Responda o mais resumidamente possivel''',
             },
         ]) 
 
